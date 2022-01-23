@@ -1,0 +1,5 @@
+others/
+.idea/
+__pycache__/
+/results/
+.DS_Store
