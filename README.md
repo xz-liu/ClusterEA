@@ -2,36 +2,55 @@
 
 Source code for ClusterEA: Scalable Entity Alignment with Stochastic Training and Normalized Mini-batch Similarities
 
-## Requirements
+## Installation
 
-pytorch>=1.10.0
-
-tensorflow-gpu==2.4.1 (required for GCN-Align and RREA)
-
-dgl==0.5.3
-
-xgboost
-
-faiss-gpu
-
-...
+    pytorch==1.10.0
+    dgl==0.5.3
+    xgboost   
+    faiss-gpu
+    tensorflow-gpu==2.4.1 (not mandatory, for running tensorflow version of GCN-Align and RREA)
+    ...
 
 A full list of required packages is located in ``src/requirements.txt``
 
-## Datasets 
+We use the CUDA version of XGBoost, for installation, we recommend users to 
+[build it from source](https://xgboost.readthedocs.io/en/stable/build.html).  
 
-The IDS benchmark is provided by [OpenEA](https://github.com/nju-websoft/OpenEA)
+The TensorFlow package is not necessary for running ClusterEA. 
+The original code of incorporated models are written in TensorFlow,
+ we include these code for evaluating the correctness of our re-implementation.
+ 
+All the code are tested in one RTX3090 GPU with CUDA 11.3.
 
-The DBP1M benchmark is  provided by [LargeEA](https://github.com/ZJU-DAILY/LargeEA)
+
+## Monitoring the GPU Memory Usage
+
+
+We recommend users to use the [NVIDIA NSight Systems](https://developer.nvidia.com/nsight-systems).
+for monitoring the GPU status.
+
+To monitor the GPU memory usage, we need to set the corresponding flag to True.
+Note that the profiling system will cause computation overhead. [Click here for details.](https://developer.nvidia.com/blog/understanding-the-visualization-of-overhead-and-latency-in-nsight-systems/)
+A sample command is as follows.
+
+    nsys profile --cuda-memory-usage true -o [PROFILE_SAVE_NAME] python -u main.py [ARGUMENTS]
+
+
+## Dataset 
+
+The IDS benchmark is provided by [OpenEA](https://github.com/nju-websoft/OpenEA). 
+We use the 2.0 version of IDS dataset to avoid name bias issue.
+
+The DBP1M benchmark is provided by [LargeEA](https://github.com/ZJU-DAILY/LargeEA).
 
 First download and unzip dataset files, place them to the project root folder:
 
-    unzip OpenEA_dataset_v1.1.zip
+    unzip OpenEA_dataset_v2.0.zip
     unzip mkdata.zip
 
 
-The __dataset__ (small for IDS15K, medium for IDS100K, large for DBP1M) and  __lang__ (fr or de) parameter controls which benchmark to use.
-For example, in the ``src`` folder, setting dataset to small and lang to fr will run on OpenEA EN_FR_15K_V1 dataset.
+The __scale__ (small for IDS15K, medium for IDS100K, large for DBP1M) and  __lang__ (fr or de) parameter controls which benchmark to use.
+For example, in the ``src`` folder, setting scale to small and lang to fr will run on OpenEA EN_FR_15K_V1 dataset.
 
 ## Run
 
