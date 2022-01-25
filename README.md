@@ -91,25 +91,20 @@ Feel free to play with hyper-parameters of ClusterEA to obtain a better result.
 A help for all arguments is provided as follows:
 
 
-    usage: main.py [-h] [--scale SCALE] [--ds DS] [--lang LANG] [--k K]
-               [--it_round IT_ROUND] [--train_ratio TRAIN_RATIO]
-               [--epoch EPOCH] [--model MODEL] [--save_folder SAVE_FOLDER]
-               [--result_folder RESULT_FOLDER] [--step STEP]
-               [--enhance ENHANCE] [--samplers SAMPLERS] [--local_only]
-               [--no_csls] [--skip_if_complete]
-               [--max_sinkhorn_sz MAX_SINKHORN_SZ]
-               [--gcn_max_iter GCN_MAX_ITER] [--cuda] [--faiss_gpu] [--norm]
+    usage: main.py [-h] [--scale SCALE] [--ds DS] [--lang LANG] [--k K] [--it_round IT_ROUND] [--train_ratio TRAIN_RATIO] [--epoch EPOCH] [--model MODEL] [--save_folder SAVE_FOLDER]
+                   [--result_folder RESULT_FOLDER] [--step STEP] [--enhance ENHANCE] [--samplers SAMPLERS] [--local_only] [--no_csls] [--skip_if_complete] [--max_sinkhorn_sz MAX_SINKHORN_SZ]
+                   [--gcn_max_iter GCN_MAX_ITER] [--cuda] [--faiss_gpu] [--norm]
     
     optional arguments:
       -h, --help            show this help message and exit
-      --scale SCALE         dataset scale
+      --scale SCALE         dataset scale, small -> IDS15Kmedium -> IDS100Klarge -> DBP1M
       --ds DS               dataset name
       --lang LANG           dataset language (fr, de)
       --k K                 mini-batch number
       --it_round IT_ROUND
       --train_ratio TRAIN_RATIO
       --epoch EPOCH         number of epochs to train
-      --model MODEL
+      --model MODEL         model used for training, including [gcn-align, rrea, dual-amn, gcn-large, rrea-large, dual-large].'-large' indicates the sampling version of the model
       --save_folder SAVE_FOLDER
       --result_folder RESULT_FOLDER
       --step STEP
@@ -119,19 +114,14 @@ A help for all arguments is provided as follows:
       --no_csls
       --skip_if_complete
       --max_sinkhorn_sz MAX_SINKHORN_SZ
-                            max matrix size to run Sinkhorn iteration, if the
-                            matrix size is higher than this value, it will
-                            calculate kNN search without normalizing to avoid OOM,
-                            default is set for 33000^2 (for RTX3090). could be set
-                            to higher value in case there is GPU with larger
-                            memory
+                            max matrix size to run Sinkhorn iteration, if the matrix size is higher than this value, it will calculate kNN search without normalizing to avoid OOM, default is set for 33000^2
+                            (for RTX3090). could be set to higher value in case there is GPU with larger memory
       --gcn_max_iter GCN_MAX_ITER
                             max iteration of GCN for partition
       --cuda                whether to use cuda or not
       --faiss_gpu           whether to use FAISS GPU
       --norm                whether to normalize embeddings
 
-    
 
 ## Citation
 
