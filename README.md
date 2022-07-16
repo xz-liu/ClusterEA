@@ -1,6 +1,6 @@
 # ClusterEA
 
-Source code for ClusterEA: Scalable Entity Alignment with Stochastic Training and Normalized Mini-batch Similarities
+Source code for [ClusterEA: Scalable Entity Alignment with Stochastic Training and Normalized Mini-batch Similarities](https://arxiv.org/abs/2205.10312)
 
 ## Installation
 
@@ -125,4 +125,11 @@ A help for all arguments is provided as follows:
 
 ## Citation
 
-Not available for now.
+
+    @inproceedings{ClusterEA,
+      author    = {Yunjun Gao and Xiaoze Liu and Junyang Wu and Tianyi Li and Pengfei Wang and Lu Chen},
+      title     = {ClusterEA: Scalable Entity Alignment with Stochastic Training
+    and Normalized Mini-batch Similarities},
+      booktitle = {KDD},
+      year = {2022}
+    }
