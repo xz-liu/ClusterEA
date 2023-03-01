@@ -13,12 +13,16 @@ Source code for [ClusterEA: Scalable Entity Alignment with Stochastic Training a
 
 A full list of required packages is located in ``src/requirements.txt``
 
+Notes:
+
 We use the CUDA version of XGBoost, for installation, we recommend users to 
 [build it from source](https://xgboost.readthedocs.io/en/stable/build.html).  
 
 The TensorFlow package is not necessary for running ClusterEA. 
 The original code of incorporated models are written in TensorFlow,
  we include these code for evaluating the correctness of our re-implementation.
+ 
+If you cannot find the ``nxmetis`` package, please refer to [this page](https://github.com/networkx/networkx-metis).
  
 All the code are tested in one RTX3090 GPU with CUDA 11.3.
 
