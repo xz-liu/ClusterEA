@@ -4,8 +4,8 @@ Source code for [ClusterEA: Scalable Entity Alignment with Stochastic Training a
 
 ## Installation
 
-    pytorch==1.10.0
-    dgl==0.5.3
+    pytorch
+    dgl
     xgboost   
     faiss-gpu
     tensorflow-gpu==2.4.1 (not mandatory, for running tensorflow version of GCN-Align and RREA)
